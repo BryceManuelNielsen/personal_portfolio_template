@@ -1,7 +1,7 @@
 /* --- Global Detail Page Styles --- */
 
 .project-header { 
-    padding: 20px 20px 20px; 
+    padding: 120px 20px 80px; 
     background: radial-gradient(circle at top right, #1e293b, #0f172a);
     color: white; 
     text-align: center; 
@@ -30,7 +30,7 @@
     gap: 50px;
     align-items: start;
     max-width: 1200px;
-    margin: 30px auto; /* Removed negative margin for better spacing */
+    margin: 40px auto; /* Removed negative margin for better spacing */
     padding: 0 40px;
 }
 
@@ -192,23 +192,4 @@
     .image-gallery { 
         grid-template-columns: 1fr; 
     }
-}
-
-.text-block ul {
-    margin-left: 20px;
-    padding-left: 20px;
-    margin-bottom: 1.5rem;
-    list-style-type: disc; /* Ensures standard bullets appear */
-}
-
-.text-block li {
-    margin-bottom: 10px;
-    line-height: 1.6;
-    color: #333; /* Or whatever color matches your design */
-}
-
-.text-block ol {
-    margin-left: 20px;
-    padding-left: 20px;
-    margin-bottom: 1.5rem;
 }

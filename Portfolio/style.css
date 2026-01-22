@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #2563eb; /* Change this for main accents */
-    --secondary-color: #1e293b; /* Change this for Nav/Footer */
+    --primary-color: #2563eb;
+    --secondary-color: #1e293b;
     --bg-color: #f8fafc;
     --text-color: #334155;
     --card-bg: #ffffff;
@@ -33,12 +33,14 @@ nav {
 }
 
 .nav-links {
+    font-size: 1.5rem;
     list-style: none;
     display: flex;
 }
 
 .nav-links li {
     margin-left: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .nav-links a {
@@ -46,6 +48,7 @@ nav {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .nav-links a:hover {
@@ -54,7 +57,7 @@ nav {
 
 /* Hero Section */
 .hero {
-    height: 60vh;
+    height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -67,33 +70,35 @@ nav {
     padding: 0 20px;
 }
 
-.hero h1 { font-size: 3rem; margin-bottom: 10px; }
-.hero p { font-size: 1.2rem; max-width: 600px; opacity: 0.9; }
+.hero h1 { font-size: 3rem; margin-bottom: 5px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
+.hero p { font-size: 1.2rem; max-width: 600px; opacity: 0.9; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
 
 /* Layout & Containers */
 .container {
-    max-width: 1100px;
+    max-width: 80%;
     margin: 40px auto;
     padding: 0 20px;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
+    margin-bottom: 10px;
+    font-size: 3rem;
     color: var(--secondary-color);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* Project Cards */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    gap: 20px;
 }
 
 .project-card {
     background: var(--card-bg);
     border-radius: 8px;
+    max-width: 100%;
     overflow: hidden;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
@@ -178,8 +183,59 @@ footer {
 /* About Me Section */
 #about {
     background: var(--card-bg);
-    padding: 40px 20px;
+    padding: 20px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+}
+
+/* About Me Side-by-Side Layout */
+.about-flex-container {
+    display: flex;
+    align-items: center; /* Centers items vertically */
+    gap: 10px;           /* Space between photo and text */
+    padding: 10px 0;
+}
+
+.about-photo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-photo img {
+    width: 100%;
+    max-width: 450px;    /* Keeps the photo from getting too huge */
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 4px solid var(--card-bg); /* Clean white border effect */
+}
+
+.about-text {
+    flex: 1.5;
+
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;           /* Gives slightly more space to the text */
+    color: var(--text-color);
+}
+
+/* Responsive: Stacks the photo on top of the text on mobile */
+@media (max-width: 768px) {
+    .about-flex-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-photo img {
+        max-width: 250px; /* Slightly smaller photo on mobile */
+    }
+}
+
+.basic_text {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
 }

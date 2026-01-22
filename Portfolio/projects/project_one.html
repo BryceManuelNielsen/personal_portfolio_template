@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail | Bryce Nielsen</title>
+    <link rel="stylesheet" href="../style.css">    
+    <link rel="stylesheet" href="project-one.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav>
+        <h1><a href="../index.html" style="color:inherit; text-decoration:none;">Bryce Nielsen</a></h1>
+        <ul class="nav-links">
+            <li><a href="../index.html#projects">Back to Projects</a></li>
+            <li><a href="../index.html#contact" >Hire Me</a></li>
+        </ul>
+    </nav>
+
+    <header class="project-header">
+        <div>
+            <h1>Autonomous Mechatronic Scavenger Robot</h1>
+            <p class="subtitle">Designed and Constructed an autonomous system capable of navigating a 25x25 area to locate, collect, and sort valuable objects based on color within a 120-second time limit.</p>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        
+        <aside class="project-sidebar">
+            <div class="sidebar-block">
+                <h4>Role</h4>
+                <p>Developer / Designer</p>
+            </div>
+            <div class="sidebar-block">
+                <h4>Timeline</h4>
+                <p>Winter 2025 (4 Months)</p>
+            </div>
+            <div class="sidebar-block">
+                <h4>Tools Used</h4>
+                <div class="tool-tags">
+                    <span>C++</span><span>Git</span><span>Microcontrollers</span><span>Soldering</span><span>Circuit Design</span><span>SolidWorks</span>
+            </div>
+            <div class="sidebar-block">
+                <a href="#" class="btn primary full-width">Live Demo <i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="btn secondary full-width"><i class="fab fa-github"></i> Source Code</a>
+            </div>
+        </aside>
+
+        <article class="project-main-content">
+            <a href="../index.html" class="back-link"><i class="fas fa-chevron-left"></i> Back to Home</a>
+
+            <section class="text-block">
+                <h2>Project Overview</h2>
+                <p>The Autonomous Scavenger Robot was designed to address the risks associated with human-operated retrieval in hazardous or inaccessible environments, such as deep-sea or Martian terrain1. The core objective was to develop a mechatronic system capable of navigating a 25x25 meter area to locate, collect, and sort valuable objects based on color within a strict 120-second time limit.</p>
+                <p>The project required a multidisciplinary approach, integrating mechanical design, electronic control, and autonomous software algorithms</p>
+                
+                <h3>Key Constraints & Requirements</h3>
+                    <ul>
+                        <li><strong>Autonomy:</strong> The robot had to operate entirely independently using an <strong>ESP32 microcontroller</strong>, relying solely on internal programming and sensors without external guides or human intervention.</li>
+                        <li><strong>Compact & Lightweight:</strong> To maximize speed and efficiency, the design target was a weight under 1kg and dimensions small enough to fit in a standard MSE locker without disassembly.</li>
+                        <li><strong>Budget:</strong> A strict $50 budget for additional components necessitated highly efficient resource utilization.</li>
+                    </ul>
+            </section>
+
+            <section class="text-block">
+                <h2>The Solution</h2>
+                <p>The final design utilized a <strong>two-wheel rear-drive configuration</strong> powered by high-torque DC motors, selected for its agility, simplicity, and ease of control. To solve the issue of friction on uneven terrains encountered during early testing, swivel ball furniture movers were integrated at the front end to improve stability and reduce drag.</p>
+                <ol>
+                    <li>
+                        <strong>Object Collection & Transportation:</strong>
+                        <p>To overcome gravity and lift gems off the ground, a rotating "windmill" sweeper arm was engineered. This arm worked in conjunction with a built-in ramp to scoop gems effectively into internal storage. A barrier wall was added next to the bucket to prevent gems from being flung at an angle and missing the containment area.</p>
+                    <li>
+                        <strong>Color Detection:</strong> Integrating sensors and programming logic to accurately identify and sort objects based on color under varying lighting conditions.</li>
+                        <p>The robot employed an array of <strong>photoresistors</strong> positioned above the collection area to detect the color of incoming gems. By calibrating the sensors to recognize specific light intensity thresholds corresponding to red, green, and blue gems, the system could make real-time sorting decisions.</p>
+                    <li>
+                        <strong>Mechanical Reliability:</strong> Designing a chassis and collection mechanism that could withstand the rigors of operation while remaining lightweight and agile.</li>
+                        <p>Using <strong>SolidWorks</strong>, the chassis was meticulously designed to optimize weight distribution and structural integrity. Prototyping and iterative testing led to refinements that enhanced durability without compromising speed.</p>
+                </ol>
+            </section>
+
+            <section class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=500" alt="Logic Diagram">
+                    <p class="caption">Fig 1: System Architecture Diagram</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=500" alt="Interface">
+                    <p class="caption">Fig 2: User Interface Prototype</p>
+                </div>
+            </section>
+
+            <section class="text-block">
+                <h2>The Solution</h2>
+                <p>Discuss your architecture, the algorithms you chose, and why you chose them. Demonstrate your engineering decision-making process.</p>
+                
+                <div class="highlight-box">
+                    <strong>Key Innovation:</strong> Used a custom Transformer-based model to reduce inference time by 40% compared to standard RNNs.
+                </div>
+            </section>
+
+            <section class="text-block">
+                <h2>Results & Impact</h2>
+                <div class="impact-stats">
+                    <div class="stat-item">
+                        <span class="stat-num">98%</span>
+                        <span class="stat-label">Accuracy Achieved</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">-15%</span>
+                        <span class="stat-label">Latency Reduction</span>
+                    </div>
+                </div>
+                <p>Summarize the final outcome and what you learned from this project. Quantifiable results are always better than generic descriptions.</p>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Bryce Nielsen. Engineering Portfolio Template.</p>
+    </footer>
+
+</body>
+</html>

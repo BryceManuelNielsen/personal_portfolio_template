@@ -1,12 +1,13 @@
 /* --- Global Detail Page Styles --- */
 
 .project-header { 
-    padding: 20px 20px 20px; 
-    background: radial-gradient(circle at top right, #1e293b, #0f172a);
-    color: white; 
+    background-color: #0f172a;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 40px 20px 80px;
     text-align: center; 
 }
-
 .project-meta { 
     display: flex; 
     justify-content: center; 
@@ -25,26 +26,29 @@
 /* --- Layout & Container --- */
 
 .content-wrapper {
+    margin: 20px 0; /* Reduced the top margin from 40px to 20px */
     display: grid;
-    grid-template-columns: 300px 1fr; /* Fixed sidebar width to prevent clustering */
-    gap: 50px;
+    grid-template-columns: 300px 1fr; 
+    gap: 0; 
     align-items: start;
-    max-width: 1200px;
-    margin: 30px auto; /* Removed negative margin for better spacing */
-    padding: 0 40px;
+    max-width: 100%;
+    padding: 0; 
 }
 
 /* --- Sidebar Styling --- */
 
 .project-sidebar {
+    width: 340px; /* Fixed width to prevent clustering */
     background: white;
-    padding: 30px;
-    border-radius: 15px;
+    padding: 20px;
+    border-radius: 15px; /* Restored all-around rounded corners */
     border: 1px solid #e2e8f0;
     position: sticky;
-    top: 120px; /* Space from top navigation */
+    top: 120px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    z-index: 10;
+    
+    /* The Magic Sauce: */
+    margin-left: 60px; /* This pushes it away from the screen edge */
 }
 
 .sidebar-block { 
@@ -82,16 +86,24 @@
 /* --- Main Content Area --- */
 
 .project-main-content { 
-    background: transparent; 
+    max-width: 900px; /* Reduced from 1200px for better reading flow */
+    margin: auto; 
+    line-height: 1.7; /* Increased line height for breathing room */
+    color: #334155;   /* Softer black for long-form reading */
+}
+
+/* Add this to remove extra spacing from the first heading */
+.project-main-content .text-block:first-of-type h2 {
+    margin-top: 0; 
 }
 
 .back-link { 
     display: inline-block; 
-    margin-bottom: 25px; 
+    margin-bottom: 10px; /* Reduced from 25px */
     color: var(--primary); 
     text-decoration: none; 
     font-weight: 600; 
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     transition: transform 0.2s;
 }
 
@@ -112,18 +124,61 @@
 }
 
 .text-block h2 { 
-    margin-bottom: 15px; 
-    color: var(--secondary); 
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-size: 1.85rem;
+    border-bottom: 2px solid #f1f5f9; /* Subtle separator */
+    padding-bottom: 10px;
+}
+
+.text-block h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: #1e293b;
+}
+
+.text-block p {
+    margin-bottom: 1.5rem; /* Consistent spacing between paragraphs */
+}
+
+/* --- List & Solution Styling --- */
+
+.text-block ul, 
+.text-block ol {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+.text-block li {
+    margin-bottom: 1rem; /* Spacing between list items */
+}
+
+.text-block li strong {
+    color: #0f172a;
+    display: block; /* Moves the bold header to its own line */
+    margin-bottom: 0.25rem;
+}
+
+/* Specific fix for your "Solution" steps */
+.text-block ol > li {
+    padding-left: 0.5rem;
+}
+
+.text-block ol p {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #475569;
 }
 
 /* --- Highlight Box & Stats --- */
-
 .highlight-box {
-    background: #f0f7ff;
-    border-left: 4px solid var(--primary);
-    padding: 20px;
-    border-radius: 0 8px 8px 0;
-    margin: 25px 0;
+    background: #f8fafc;
+    border-left: 4px solid #3b82f6;
+    padding: 24px;
+    border-radius: 4px;
+    margin: 3rem 0;
+    font-style: italic;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .impact-stats {
@@ -182,7 +237,10 @@
     .project-sidebar { 
         position: relative; 
         top: 0; 
-        order: 2; /* Moves sidebar below content on mobile */
+        border-radius: 15px; /* Restore all rounded corners on mobile */
+        border-left: 1px solid #e2e8f0;
+        margin: 0 0 40px 0;
+        order: 2;
     }
     
     .project-main-content { 
@@ -192,23 +250,4 @@
     .image-gallery { 
         grid-template-columns: 1fr; 
     }
-}
-
-.text-block ul {
-    margin-left: 20px;
-    padding-left: 20px;
-    margin-bottom: 1.5rem;
-    list-style-type: disc; /* Ensures standard bullets appear */
-}
-
-.text-block li {
-    margin-bottom: 10px;
-    line-height: 1.6;
-    color: #333; /* Or whatever color matches your design */
-}
-
-.text-block ol {
-    margin-left: 20px;
-    padding-left: 20px;
-    margin-bottom: 1.5rem;
 }

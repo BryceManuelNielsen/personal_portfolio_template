@@ -3,79 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio | [Your Name]</title>
+    <title>Bryce Nielsen</title>
     
     <link rel="stylesheet" href="style.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <nav>
-        <h2>[Your Name]</h2>
+        <h1 class="basic_text">Bryce Nielsen</h1>
         <ul class="nav-links">
             <li><a href="#about">About Me</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="resume.html">Resume</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-        <h1>Hi, I'm [Your Name]</h1>
-        <p>[Your Professional Headline - e.g., Software Engineer, Designer, Analyst]</p>
+        <h1 class="basic_text">Hi, I'm Bryce</h1>
+        <p class="basic_text">A Multi-Disciplinary Engineer specializing in Software, Data Science, and Hardware Systems.</p>
     </header>
 
     <section id="about" class="container">
         <h2 class="section-title">About Me</h2>
-        <p>[Write a brief bio here highlighting your passion, experience, and the problems you love to solve.]</p>
+        <div class="about-flex-container">
+            <div class="about-photo">
+                <img src="photos\headshot.png" alt="Bryce Nielsen Photo">
+            </div>
+            
+            <div class="about-text">
+                <p>I am a passionate undergraduate engineering student in Ontario, Canada, pursuing a degree in Mechatronics and Artificial Intelligence Systems Engineering.</p>
+                <p>I thrive on solving complex problems across software development, machine learning, and mechanical design. My background allows me to build innovative solutions that bridge the gap between hardware and software.</p>
+            </div>
+        </div>
     </section>
 
     <section id="projects" class="container">
-        <h2 class="section-title">Technical Projects</h2>
+        <h2 class="section-title">Projects</h2>
         <div class="project-grid">
             
             <div class="project-card">
-                <div class="project-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1555942875-625730f86b57?w=500" alt="Project Image" class="project-img">
-                </div>
+                <img src="photos\Chasis.png" alt="Software Project" class="project-img">
                 <div class="project-content">
-                    <span class="project-tag">[Category]</span>
-                    <h3>[Project Title One]</h3>
-                    <p>[A short summary of the technical challenge and your solution.]</p>
-                    <a href="projects/project-one/index.html" class="details-link">View Project Details <i class="fas fa-arrow-right"></i></a>
+                    <span class="project-tag">Software / SolidWorks</span>
+                    <h3>Autonomous Mechatronic Scavenger Robot</h3>
+                    <p>Designed and Constructed an autonomous system capable of navigating a 25x25 area to locate, collect, and sort valuable objects based on color within a 120-second time limit.</p>
+                    <a href="projects/project_one.html" class="details-link">View Project Details <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
             <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=500" alt="Project Image" class="project-img">
+                <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=500" alt="Project 2" class="project-img">
                 <div class="project-content">
-                    <span class="project-tag">[Category]</span>
-                    <h3>[Project Title Two]</h3>
-                    <p>[A description of the tools used, such as CAD, Python, or React.]</p>
-                    <a href="projects/project-two/index.html" class="details-link">View Details →</a>
+                    <span class="project-tag">Mechanical / Hardware</span>
+                    <h3>Project Title Two</h3>
+                    <p>A description of a mechanical or electrical engineering project. Mention CAD software or hardware components.</p>
+                    <a href="projects/project_two.html" class="details-link">View Project Details <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?w=500" alt="Project 3" class="project-img">
+                <div class="project-content">
+                    <span class="project-tag">Networking / Systems</span>
+                    <h3>Project Title Three</h3>
+                    <p>Highlight systems-level work, networking protocols, or cloud infrastructure implementations.</p>
+                    <a href="projects/project_three.html" class="details-link">View Project Details <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="skills" class="container">
         <h2 class="section-title">Technical Stack</h2>
         <div class="skills-container">
-            <div class="skill-badge"><i class="fas fa-code"></i> [Skill 1]</div>
-            <div class="skill-badge"><i class="fas fa-database"></i> [Skill 2]</div>
-            <div class="skill-badge"><i class="fas fa-microchip"></i> [Skill 3]</div>
-            <div class="skill-badge"><i class="fas fa-brain"></i> [Skill 4]</div>
+            <div class="skill-badge"><i class="fab fa-python"></i> Python</div>
+            <div class="skill-badge"><i class="fas fa-microchip"></i> Embedded Systems</div>
+            <div class="skill-badge"><i class="fas fa-brain"></i> Machine Learning</div>
+            <div class="skill-badge"><i class="fas fa-code"></i> React / Web Dev</div>
+            <div class="skill-badge"><i class="fas fa-database"></i> SQL / Data Analysis</div>
+            <div class="skill-badge"><i class="fas fa-cog"></i> CAD & Simulation</div>
         </div>
     </section>
 
     <footer id="contact">
         <h3>Let's Connect</h3>
-        <p>Open for collaborations and professional opportunities.</p>
+        <p>Open for collaborations and engineering opportunities.</p>
         <div class="social-links">
-            <a href="[Your GitHub URL]"><i class="fab fa-github"></i></a>
-            <a href="[Your LinkedIn URL]"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:[Your Email Address]"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/bryce-nielsen"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/bryce-nielsen-62a450288/"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:bryce.nielsen@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
     </footer>
     
