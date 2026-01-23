@@ -1,0 +1,157 @@
+/* Modern.css - Clean, Minimalist Design */
+
+:root {
+    --modern-bg: #ffffff;
+    --modern-text: #111827;
+    --modern-accent: #000000;
+    --modern-gray: #f3f4f6;
+}
+
+.modern-template {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--modern-text);
+    background: var(--modern-bg);
+    line-height: 1.5;
+}
+
+.modern-template a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+.modern-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.modern-logo {
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.modern-nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.modern-nav a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #6b7280;
+    transition: color 0.2s;
+}
+
+.modern-nav a:hover {
+    color: var(--modern-accent);
+}
+
+/* Hero */
+.modern-hero {
+    max-width: 800px;
+    margin: 5rem auto;
+    padding: 0 5%;
+    text-align: center;
+}
+
+.modern-hero h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.modern-hero p {
+    font-size: 1.25rem;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+/* Projects Grid */
+.modern-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 0 5%;
+    max-width: 1400px;
+    margin: 4rem auto;
+}
+
+.modern-card {
+    group: hover;
+    transition: opacity 0.3s;
+}
+
+.modern-card-img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    background: #e5e7eb;
+}
+
+.modern-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.modern-card p {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* Skills */
+.modern-skills {
+    background: var(--modern-gray);
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+.modern-skills h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    letter-spacing: -1px;
+}
+
+.modern-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.modern-tag {
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Footer */
+.modern-footer {
+    padding: 4rem 5%;
+    text-align: center;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 4rem;
+}
+
+.modern-social {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
