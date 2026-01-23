@@ -4,6 +4,7 @@ import { PortfolioProvider, usePortfolio } from './context/PortfolioContext';
 import { PortfolioManagerProvider } from './context/PortfolioManagerContext';
 import { templates } from './templates/registry';
 import type { TemplateId } from './templates/registry';
+import { PageRenderer } from './components/builder/PageRenderer';
 
 // Pages
 import LaunchPage from './pages/LaunchPage';
@@ -13,6 +14,8 @@ import ProjectsList from './pages/Dashboard/ProjectsList';
 import ProjectForm from './pages/Dashboard/ProjectForm';
 import TemplateGallery from './pages/Dashboard/TemplateGallery';
 import TemplateGenerator from './pages/Dashboard/TemplateGenerator';
+import ComponentLibrary from './pages/Dashboard/ComponentLibrary';
+import BuilderWrapper from './pages/Builder/BuilderWrapper';
 
 // Wrapper to handle scroll to top on route change
 const ScrollToTop = () => {
@@ -40,7 +43,14 @@ const PortfolioContextWrapper = () => {
 
 // Dynamic Home Route
 const HomeRoute = () => {
-  const { data, activeTemplate } = usePortfolio();
+  const { pages, activeTemplate, data } = usePortfolio();
+
+  // If the user has a custom page config for 'home', use the PageRenderer
+  if (pages['home'] && activeTemplate === 'custom') {
+    return <PageRenderer config={pages['home']} />;
+  }
+
+  // Fallback to legacy template system
   const templateId = (activeTemplate in templates ? activeTemplate : 'classic') as TemplateId;
   const TemplateComponent = templates[templateId].Home;
   return <TemplateComponent data={data} />;
@@ -49,7 +59,7 @@ const HomeRoute = () => {
 // Dynamic Project Route
 const ProjectRoute = () => {
   const { projectId } = useParams<{ projectId: string }>();
-  const { data, activeTemplate } = usePortfolio();
+  const { data, activeTemplate, pages } = usePortfolio();
 
   const project = data.projects.find(p => p.id === projectId);
 
@@ -60,6 +70,12 @@ const ProjectRoute = () => {
         <a href="/">Return Home</a>
       </div>
     );
+  }
+
+  // Check for custom page config
+  const pageId = `project-${projectId}`;
+  if (activeTemplate === 'custom' && pages[pageId]) {
+    return <PageRenderer config={pages[pageId]} />;
   }
 
   const templateId = (activeTemplate in templates ? activeTemplate : 'classic') as TemplateId;
@@ -93,6 +109,10 @@ function App() {
               <Route path="projects/edit/:projectId" element={<ProjectForm />} />
               <Route path="templates" element={<TemplateGallery />} />
               <Route path="generator" element={<TemplateGenerator />} />
+
+              {/* New Builder Routes */}
+              <Route path="builder" element={<BuilderWrapper />} />
+              <Route path="components" element={<ComponentLibrary />} />
             </Route>
           </Route>
 

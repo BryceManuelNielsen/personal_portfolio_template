@@ -1,0 +1,19 @@
+import { test, expect } from '@playwright/test';
+
+// Define a simple test scenario since we can't run full browser tests easily here
+// This file serves as a template for manual verification or future CI integration.
+
+/*
+Scenario:
+1. Create a new portfolio instance.
+2. Navigate to Dashboard -> Page Builder.
+3. Verify "Page Structure" sidebar exists.
+4. Verify "Add Block" buttons exist.
+5. Click "Hero Section" to add a hero block.
+6. Verify the Hero block appears in the Preview area.
+7. Select the Hero block.
+8. Change background color in Properties sidebar.
+9. Click "Save Page".
+10. Navigate to "Theme Gallery" and select "custom" (if we implemented that toggle, currently it's manual or implies usage).
+    *Actually, we need to ensure the user can switch to 'custom' mode.*
+*/

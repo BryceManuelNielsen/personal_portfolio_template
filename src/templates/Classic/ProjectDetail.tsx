@@ -13,11 +13,11 @@ const ClassicProjectDetail: React.FC<Props> = ({ project, profile }) => {
     <div className="classic-template">
       <nav>
         <h1 className="basic_text">
-          <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>{profile.name}</Link>
+          <Link to=".." style={{ color: 'inherit', textDecoration: 'none' }}>{profile.name}</Link>
         </h1>
         <ul className="nav-links">
-          <li><Link to="/#projects">Back to Projects</Link></li>
-          <li><Link to="/#contact">Hire Me</Link></li>
+          <li><Link to="../#projects">Back to Projects</Link></li>
+          <li><Link to="../#contact">Hire Me</Link></li>
         </ul>
       </nav>
 
@@ -62,7 +62,7 @@ const ClassicProjectDetail: React.FC<Props> = ({ project, profile }) => {
         </aside>
 
         <article className="project-main-content">
-          <Link to="/" className="back-link"><i className="fas fa-chevron-left"></i> Back to Home</Link>
+          <Link to=".." className="back-link"><i className="fas fa-chevron-left"></i> Back to Home</Link>
 
           <section className="text-block">
             <h2>Project Overview</h2>

@@ -1,10 +1,13 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import type { PortfolioData, Profile, Project, Skill } from '../types/Portfolio';
+import type { PageConfig } from '../types/Builder';
 import { portfolioData as initialData } from '../data/placeholderData';
+import { defaultHomeConfig } from '../data/defaultPages';
 
 interface PortfolioContextType {
   data: PortfolioData;
+  pages: Record<string, PageConfig>;
   activeTemplate: string;
   updateProfile: (profile: Profile) => void;
   updateSkills: (skills: Skill[]) => void;
@@ -12,6 +15,7 @@ interface PortfolioContextType {
   updateProject: (project: Project) => void;
   deleteProject: (projectId: string) => void;
   setTemplate: (templateId: string) => void;
+  savePage: (pageId: string, config: PageConfig) => void;
   resetData: () => void;
 }
 
@@ -33,8 +37,9 @@ interface ProviderProps {
 export const PortfolioProvider: React.FC<ProviderProps> = ({ children, instanceId }) => {
   const dataKey = `portfolio_data_${instanceId}`;
   const templateKey = `portfolio_template_${instanceId}`;
+  const pagesKey = `portfolio_pages_${instanceId}`;
 
-  // Load initial state from local storage or fallback to placeholder
+  // Load initial state from local storage
   const [data, setData] = useState<PortfolioData>(() => {
     const saved = localStorage.getItem(dataKey);
     return saved ? JSON.parse(saved) : initialData;
@@ -42,6 +47,17 @@ export const PortfolioProvider: React.FC<ProviderProps> = ({ children, instanceI
 
   const [activeTemplate, setActiveTemplate] = useState<string>(() => {
     return localStorage.getItem(templateKey) || 'classic';
+  });
+
+  const [pages, setPages] = useState<Record<string, PageConfig>>(() => {
+    const saved = localStorage.getItem(pagesKey);
+    if (saved) {
+      return JSON.parse(saved);
+    }
+    // Initial pages: Home
+    return {
+      'home': defaultHomeConfig
+    };
   });
 
   // Save to local storage whenever state changes
@@ -53,6 +69,10 @@ export const PortfolioProvider: React.FC<ProviderProps> = ({ children, instanceI
     localStorage.setItem(templateKey, activeTemplate);
   }, [activeTemplate, templateKey]);
 
+  useEffect(() => {
+    localStorage.setItem(pagesKey, JSON.stringify(pages));
+  }, [pages, pagesKey]);
+
   const updateProfile = (profile: Profile) => {
     setData(prev => ({ ...prev, profile }));
   };
@@ -63,6 +83,9 @@ export const PortfolioProvider: React.FC<ProviderProps> = ({ children, instanceI
 
   const addProject = (project: Project) => {
     setData(prev => ({ ...prev, projects: [...prev.projects, project] }));
+
+    // Also initialize a default page config for this project?
+    // For now, we rely on the generic template, but we could create a 'project-{id}' page here.
   };
 
   const updateProject = (updatedProject: Project) => {
@@ -83,14 +106,20 @@ export const PortfolioProvider: React.FC<ProviderProps> = ({ children, instanceI
     setActiveTemplate(templateId);
   };
 
+  const savePage = (pageId: string, config: PageConfig) => {
+    setPages(prev => ({ ...prev, [pageId]: config }));
+  };
+
   const resetData = () => {
       setData(initialData);
       setActiveTemplate('classic');
+      setPages({ 'home': defaultHomeConfig });
   };
 
   return (
     <PortfolioContext.Provider value={{
       data,
+      pages,
       activeTemplate,
       updateProfile,
       updateSkills,
@@ -98,6 +127,7 @@ export const PortfolioProvider: React.FC<ProviderProps> = ({ children, instanceI
       updateProject,
       deleteProject,
       setTemplate,
+      savePage,
       resetData
     }}>
       {children}

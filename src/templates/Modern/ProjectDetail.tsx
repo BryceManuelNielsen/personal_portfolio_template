@@ -12,7 +12,7 @@ const ModernProjectDetail: React.FC<Props> = ({ project, profile }) => {
   return (
     <div className="modern-template">
       <header className="modern-header">
-        <div className="modern-logo"><Link to="/">{profile.name}</Link></div>
+        <div className="modern-logo"><Link to="..">{profile.name}</Link></div>
       </header>
 
       <main style={{ maxWidth: '800px', margin: '4rem auto', padding: '0 5%' }}>
@@ -60,7 +60,7 @@ const ModernProjectDetail: React.FC<Props> = ({ project, profile }) => {
       </main>
 
       <footer className="modern-footer">
-        <Link to="/" style={{ borderBottom: '2px solid black', fontWeight: 600 }}>Back to Home</Link>
+        <Link to=".." style={{ borderBottom: '2px solid black', fontWeight: 600 }}>Back to Home</Link>
       </footer>
     </div>
   );
