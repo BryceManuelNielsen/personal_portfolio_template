@@ -53,3 +53,10 @@ export interface PortfolioData {
   skills: Skill[];
   projects: Project[];
 }
+
+export interface PortfolioMetadata {
+  id: string;
+  name: string;
+  createdAt: number;
+  lastModified: number;
+}

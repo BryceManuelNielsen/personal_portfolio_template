@@ -1,0 +1,128 @@
+.launch-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #333;
+}
+
+.launch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.launch-header h1 {
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.launch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.portfolio-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.card-preview {
+  height: 160px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3rem;
+}
+
+.create-card .card-preview {
+  background: #f8f9fa;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.create-card:hover .card-preview {
+  background: #e9ecef;
+  color: #aaa;
+}
+
+.card-content {
+  padding: 20px;
+  flex: 1;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: #2d3748;
+}
+
+.card-meta {
+  font-size: 0.875rem;
+  color: #718096;
+  margin-bottom: 20px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-primary {
+  background: #3182ce;
+  color: white;
+}
+.btn-primary:hover { background: #2b6cb0; }
+
+.btn-secondary {
+  background: #edf2f7;
+  color: #4a5568;
+}
+.btn-secondary:hover { background: #e2e8f0; }
+
+.btn-danger {
+  background: #fff5f5;
+  color: #c53030;
+}
+.btn-danger:hover { background: #fed7d7; }
+
+.create-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}

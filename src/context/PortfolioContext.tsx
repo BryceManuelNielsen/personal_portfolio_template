@@ -27,27 +27,31 @@ export const usePortfolio = () => {
 
 interface ProviderProps {
   children: ReactNode;
+  instanceId: string;
 }
 
-export const PortfolioProvider: React.FC<ProviderProps> = ({ children }) => {
+export const PortfolioProvider: React.FC<ProviderProps> = ({ children, instanceId }) => {
+  const dataKey = `portfolio_data_${instanceId}`;
+  const templateKey = `portfolio_template_${instanceId}`;
+
   // Load initial state from local storage or fallback to placeholder
   const [data, setData] = useState<PortfolioData>(() => {
-    const saved = localStorage.getItem('portfolioData');
+    const saved = localStorage.getItem(dataKey);
     return saved ? JSON.parse(saved) : initialData;
   });
 
   const [activeTemplate, setActiveTemplate] = useState<string>(() => {
-    return localStorage.getItem('activeTemplate') || 'classic';
+    return localStorage.getItem(templateKey) || 'classic';
   });
 
   // Save to local storage whenever state changes
   useEffect(() => {
-    localStorage.setItem('portfolioData', JSON.stringify(data));
-  }, [data]);
+    localStorage.setItem(dataKey, JSON.stringify(data));
+  }, [data, dataKey]);
 
   useEffect(() => {
-    localStorage.setItem('activeTemplate', activeTemplate);
-  }, [activeTemplate]);
+    localStorage.setItem(templateKey, activeTemplate);
+  }, [activeTemplate, templateKey]);
 
   const updateProfile = (profile: Profile) => {
     setData(prev => ({ ...prev, profile }));

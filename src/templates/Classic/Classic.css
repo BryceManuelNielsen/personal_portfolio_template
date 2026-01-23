@@ -1,27 +1,24 @@
-:root {
+.classic-template {
     --primary-color: #2563eb;
     --secondary-color: #1e293b;
     --bg-color: #f8fafc;
     --text-color: #334155;
     --card-bg: #ffffff;
     --text-muted: #94a3b8;
-}
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
+    /* Body styles moved here */
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.classic-template * {
+    box-sizing: border-box;
 }
 
 /* Navigation */
-nav {
+.classic-template nav {
     background: var(--secondary-color);
     color: white;
     padding: 1rem 5%;
@@ -33,18 +30,20 @@ nav {
     z-index: 1000;
 }
 
-.nav-links {
+.classic-template .nav-links {
     font-size: 1.5rem;
     list-style: none;
     display: flex;
+    margin: 0;
+    padding: 0;
 }
 
-.nav-links li {
+.classic-template .nav-links li {
     margin-left: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.nav-links a {
+.classic-template .nav-links a {
     color: white;
     text-decoration: none;
     font-weight: 500;
@@ -52,36 +51,35 @@ nav {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.nav-links a:hover {
+.classic-template .nav-links a:hover {
     color: var(--primary-color);
 }
 
 /* Hero Section */
-.hero {
+.classic-template .hero {
     height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* Background image will be set inline in React */
     background-color: #1e293b;
     background-size: cover;
     color: white;
     padding: 0 20px;
 }
 
-.hero h1 { font-size: 3rem; margin-bottom: 5px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
-.hero p { font-size: 1.2rem; max-width: 600px; opacity: 0.9; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
+.classic-template .hero h1 { font-size: 3rem; margin-bottom: 5px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; margin-top: 0; }
+.classic-template .hero p { font-size: 1.2rem; max-width: 600px; opacity: 0.9; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
 
 /* Layout & Containers */
-.container {
+.classic-template .container {
     max-width: 80%;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-.section-title {
+.classic-template .section-title {
     text-align: center;
     margin-bottom: 10px;
     font-size: 3rem;
@@ -90,13 +88,13 @@ nav {
 }
 
 /* Project Cards */
-.project-grid {
+.classic-template .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
-.project-card {
+.classic-template .project-card {
     background: var(--card-bg);
     border-radius: 8px;
     max-width: 100%;
@@ -105,21 +103,21 @@ nav {
     transition: transform 0.3s;
 }
 
-.project-card:hover {
+.classic-template .project-card:hover {
     transform: translateY(-5px);
 }
 
-.project-img {
+.classic-template .project-img {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-.project-content {
+.classic-template .project-content {
     padding: 20px;
 }
 
-.project-tag {
+.classic-template .project-tag {
     font-size: 0.75rem;
     background: #dbeafe;
     color: var(--primary-color);
@@ -130,14 +128,14 @@ nav {
     margin-bottom: 10px;
 }
 
-.details-link {
+.classic-template .details-link {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
 }
 
 /* Skills */
-.skills-container {
+.classic-template .skills-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -145,7 +143,7 @@ nav {
     margin-top: 20px;
 }
 
-.skill-badge {
+.classic-template .skill-badge {
     background: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -154,7 +152,7 @@ nav {
 }
 
 /* Footer */
-footer {
+.classic-template footer {
     background: var(--secondary-color);
     color: white;
     text-align: center;
@@ -162,27 +160,27 @@ footer {
     margin-top: 60px;
 }
 
-.social-links {
+.classic-template .social-links {
     margin-bottom: 20px;
 }
 
-.social-links a {
+.classic-template .social-links a {
     color: white;
     font-size: 1.5rem;
     margin: 0 10px;
     transition: opacity 0.3s;
 }
 
-.social-links a:hover { opacity: 0.7; }
+.classic-template .social-links a:hover { opacity: 0.7; }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2rem; }
-    .nav-links { display: none; }
+    .classic-template .hero h1 { font-size: 2rem; }
+    .classic-template .nav-links { display: none; }
 }
 
 /* About Me Section */
-#about {
+.classic-template #about {
     background: var(--card-bg);
     padding: 20px 20px;
     border-radius: 8px;
@@ -191,20 +189,20 @@ footer {
 }
 
 /* About Me Side-by-Side Layout */
-.about-flex-container {
+.classic-template .about-flex-container {
     display: flex;
     align-items: center; /* Centers items vertically */
     gap: 10px;           /* Space between photo and text */
     padding: 10px 0;
 }
 
-.about-photo {
+.classic-template .about-photo {
     flex: 1;
     display: flex;
     justify-content: center;
 }
 
-.about-photo img {
+.classic-template .about-photo img {
     width: 100%;
     max-width: 450px;    /* Keeps the photo from getting too huge */
     border-radius: 12px;
@@ -212,12 +210,12 @@ footer {
     border: 4px solid var(--card-bg); /* Clean white border effect */
 }
 
-.about-text {
+.classic-template .about-text {
     flex: 1.5;
 
 }
 
-.about-text p {
+.classic-template .about-text p {
     margin-bottom: 20px;
     font-size: 1.2rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;           /* Gives slightly more space to the text */
@@ -226,24 +224,24 @@ footer {
 
 /* Responsive: Stacks the photo on top of the text on mobile */
 @media (max-width: 768px) {
-    .about-flex-container {
+    .classic-template .about-flex-container {
         flex-direction: column;
         text-align: center;
     }
 
-    .about-photo img {
+    .classic-template .about-photo img {
         max-width: 250px; /* Slightly smaller photo on mobile */
     }
 }
 
-.basic_text {
+.classic-template .basic_text {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.5rem;
 }
 
 /* --- Global Detail Page Styles (From project-one.css) --- */
 
-.project-header {
+.classic-template .project-header {
     background-color: #0f172a;
     background-size: cover;
     background-position: center;
@@ -251,7 +249,7 @@ footer {
     padding: 40px 20px 80px;
     text-align: center;
 }
-.project-meta {
+.classic-template .project-meta {
     display: flex;
     justify-content: center;
     gap: 30px;
@@ -260,7 +258,7 @@ footer {
     font-size: 0.9rem;
 }
 
-.subtitle {
+.classic-template .subtitle {
     color: #94a3b8;
     font-size: 1.1rem;
     margin-top: 10px;
@@ -268,7 +266,7 @@ footer {
 
 /* --- Layout & Container --- */
 
-.content-wrapper {
+.classic-template .content-wrapper {
     margin: 20px 0; /* Reduced the top margin from 40px to 20px */
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -280,7 +278,7 @@ footer {
 
 /* --- Sidebar Styling --- */
 
-.project-sidebar {
+.classic-template .project-sidebar {
     width: 340px; /* Fixed width to prevent clustering */
     background: white;
     padding: 20px;
@@ -294,11 +292,11 @@ footer {
     margin-left: 60px; /* This pushes it away from the screen edge */
 }
 
-.sidebar-block {
+.classic-template .sidebar-block {
     margin-bottom: 25px;
 }
 
-.sidebar-block h4 {
+.classic-template .sidebar-block h4 {
     font-size: 0.8rem;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -306,13 +304,13 @@ footer {
     letter-spacing: 1px;
 }
 
-.tool-tags {
+.classic-template .tool-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
 
-.tool-tags span {
+.classic-template .tool-tags span {
     background: #f1f5f9;
     padding: 4px 10px;
     border-radius: 4px;
@@ -320,7 +318,7 @@ footer {
     font-weight: 600;
 }
 
-.full-width {
+.classic-template .full-width {
     width: 100%;
     text-align: center;
     margin: 5px 0;
@@ -328,7 +326,7 @@ footer {
 
 /* --- Main Content Area --- */
 
-.project-main-content {
+.classic-template .project-main-content {
     max-width: 900px; /* Reduced from 1200px for better reading flow */
     margin: auto;
     line-height: 1.7; /* Increased line height for breathing room */
@@ -336,11 +334,11 @@ footer {
 }
 
 /* Add this to remove extra spacing from the first heading */
-.project-main-content .text-block:first-of-type h2 {
+.classic-template .project-main-content .text-block:first-of-type h2 {
     margin-top: 0;
 }
 
-.back-link {
+.classic-template .back-link {
     display: inline-block;
     margin-bottom: 10px; /* Reduced from 25px */
     color: var(--primary-color);
@@ -350,9 +348,9 @@ footer {
     transition: transform 0.2s;
 }
 
-.back-link:hover { transform: translateX(-5px); }
+.classic-template .back-link:hover { transform: translateX(-5px); }
 
-.project-large-img {
+.classic-template .project-large-img {
     width: 100%;
     height: auto;
     max-height: 500px; /* Prevents vertical images from stretching too far */
@@ -362,11 +360,11 @@ footer {
     object-fit: cover;
 }
 
-.text-block {
+.classic-template .text-block {
     margin-bottom: 40px;
 }
 
-.text-block h2 {
+.classic-template .text-block h2 {
     margin-top: 3rem;
     margin-bottom: 1rem;
     font-size: 1.85rem;
@@ -374,47 +372,47 @@ footer {
     padding-bottom: 10px;
 }
 
-.text-block h3 {
+.classic-template .text-block h3 {
     margin-top: 2rem;
     margin-bottom: 0.75rem;
     color: #1e293b;
 }
 
-.text-block p {
+.classic-template .text-block p {
     margin-bottom: 1.5rem; /* Consistent spacing between paragraphs */
 }
 
 /* --- List & Solution Styling --- */
 
-.text-block ul,
-.text-block ol {
+.classic-template .text-block ul,
+.classic-template .text-block ol {
     margin-bottom: 2rem;
     padding-left: 1.5rem;
 }
 
-.text-block li {
+.classic-template .text-block li {
     margin-bottom: 1rem; /* Spacing between list items */
 }
 
-.text-block li strong {
+.classic-template .text-block li strong {
     color: #0f172a;
     display: block; /* Moves the bold header to its own line */
     margin-bottom: 0.25rem;
 }
 
 /* Specific fix for your "Solution" steps */
-.text-block ol > li {
+.classic-template .text-block ol > li {
     padding-left: 0.5rem;
 }
 
-.text-block ol p {
+.classic-template .text-block ol p {
     margin-top: 0.5rem;
     font-size: 0.95rem;
     color: #475569;
 }
 
 /* --- Highlight Box & Stats --- */
-.highlight-box {
+.classic-template .highlight-box {
     background: #f8fafc;
     border-left: 4px solid #3b82f6;
     padding: 24px;
@@ -424,36 +422,36 @@ footer {
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
 }
 
-.impact-stats {
+.classic-template .impact-stats {
     display: flex;
     gap: 40px;
     margin: 30px 0;
 }
 
-.stat-item { text-align: left; }
+.classic-template .stat-item { text-align: left; }
 
-.stat-num {
+.classic-template .stat-num {
     display: block;
     font-size: 2.2rem;
     font-weight: 800;
     color: var(--primary-color);
 }
 
-.stat-label {
+.classic-template .stat-label {
     font-size: 0.85rem;
     color: var(--text-muted);
 }
 
 /* --- Gallery Section --- */
 
-.image-gallery {
+.classic-template .image-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
     margin: 40px 0;
 }
 
-.gallery-item img {
+.classic-template .gallery-item img {
     width: 100%;
     height: 220px;
     object-fit: cover;
@@ -461,7 +459,7 @@ footer {
     border: 1px solid #e2e8f0;
 }
 
-.caption {
+.classic-template .caption {
     font-size: 0.85rem;
     color: var(--text-muted);
     text-align: center;
@@ -471,13 +469,13 @@ footer {
 /* --- Responsive Fixes --- */
 
 @media (max-width: 1000px) {
-    .content-wrapper {
+    .classic-template .content-wrapper {
         grid-template-columns: 1fr;
         margin-top: 20px;
         padding: 0 20px;
     }
 
-    .project-sidebar {
+    .classic-template .project-sidebar {
         position: relative;
         top: 0;
         border-radius: 15px; /* Restore all rounded corners on mobile */
@@ -486,11 +484,11 @@ footer {
         order: 2;
     }
 
-    .project-main-content {
+    .classic-template .project-main-content {
         order: 1;
     }
 
-    .image-gallery {
+    .classic-template .image-gallery {
         grid-template-columns: 1fr;
     }
 }

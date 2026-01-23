@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useParams, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useParams, useLocation, Outlet } from 'react-router-dom';
 import { PortfolioProvider, usePortfolio } from './context/PortfolioContext';
+import { PortfolioManagerProvider } from './context/PortfolioManagerContext';
 import { templates } from './templates/registry';
 import type { TemplateId } from './templates/registry';
 
-// Dashboard Components
+// Pages
+import LaunchPage from './pages/LaunchPage';
 import DashboardLayout from './pages/Dashboard/DashboardLayout';
 import ProfileEditor from './pages/Dashboard/ProfileEditor';
 import ProjectsList from './pages/Dashboard/ProjectsList';
@@ -20,6 +22,21 @@ const ScrollToTop = () => {
   }, [pathname]);
   return null;
 };
+
+// --- Context Wrapper for Routes with ID ---
+const PortfolioContextWrapper = () => {
+  const { id } = useParams<{ id: string }>();
+
+  if (!id) return <div>Error: No Portfolio ID</div>;
+
+  return (
+    <PortfolioProvider instanceId={id}>
+      <Outlet />
+    </PortfolioProvider>
+  );
+};
+
+// --- Route Components ---
 
 // Dynamic Home Route
 const HomeRoute = () => {
@@ -53,28 +70,35 @@ const ProjectRoute = () => {
 
 function App() {
   return (
-    <PortfolioProvider>
+    <PortfolioManagerProvider>
       <Router>
         <ScrollToTop />
         <Routes>
-          {/* Public Portfolio Routes */}
-          <Route path="/" element={<HomeRoute />} />
-          <Route path="/project/:projectId" element={<ProjectRoute />} />
+          {/* Launch Page (Root) */}
+          <Route path="/" element={<LaunchPage />} />
 
-          {/* CMS / Dashboard Routes */}
-          <Route path="/dashboard" element={<DashboardLayout />}>
-            <Route index element={<div style={{ padding: '20px' }}><h1>Welcome to your CMS</h1><p>Select an option from the sidebar to start editing.</p></div>} />
-            <Route path="profile" element={<ProfileEditor />} />
-            <Route path="projects" element={<ProjectsList />} />
-            <Route path="projects/new" element={<ProjectForm />} />
-            <Route path="projects/edit/:projectId" element={<ProjectForm />} />
-            <Route path="templates" element={<TemplateGallery />} />
-            <Route path="generator" element={<TemplateGenerator />} />
+          {/* Public Portfolio Routes (Scoped by ID) */}
+          <Route path="/p/:id" element={<PortfolioContextWrapper />}>
+            <Route index element={<HomeRoute />} />
+            <Route path="project/:projectId" element={<ProjectRoute />} />
+          </Route>
+
+          {/* CMS / Dashboard Routes (Scoped by ID) */}
+          <Route path="/dashboard/:id" element={<PortfolioContextWrapper />}>
+            <Route element={<DashboardLayout />}>
+              <Route index element={<div style={{ padding: '20px' }}><h1>Welcome to your CMS</h1><p>Select an option from the sidebar to start editing.</p></div>} />
+              <Route path="profile" element={<ProfileEditor />} />
+              <Route path="projects" element={<ProjectsList />} />
+              <Route path="projects/new" element={<ProjectForm />} />
+              <Route path="projects/edit/:projectId" element={<ProjectForm />} />
+              <Route path="templates" element={<TemplateGallery />} />
+              <Route path="generator" element={<TemplateGenerator />} />
+            </Route>
           </Route>
 
         </Routes>
       </Router>
-    </PortfolioProvider>
+    </PortfolioManagerProvider>
   );
 }
 
