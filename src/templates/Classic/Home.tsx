@@ -53,7 +53,7 @@ const ClassicHome: React.FC<Props> = ({ data }) => {
                 <span className="project-tag">{project.category}</span>
                 <h3>{project.title}</h3>
                 <p>{project.subtitle}</p>
-                <Link to={`/project/${project.id}`} className="details-link">
+                <Link to={`project/${project.id}`} className="details-link">
                   View Project Details <i className="fas fa-arrow-right"></i>
                 </Link>
               </div>

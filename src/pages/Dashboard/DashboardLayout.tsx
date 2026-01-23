@@ -13,17 +13,24 @@ const DashboardLayout: React.FC = () => {
           <NavLink to={`/dashboard/${id}`} end className={({ isActive }) => isActive ? 'active' : ''}>
             Overview
           </NavLink>
+
+          <div className="nav-section-header">Content</div>
           <NavLink to={`/dashboard/${id}/profile`} className={({ isActive }) => isActive ? 'active' : ''}>
             Edit Profile
           </NavLink>
           <NavLink to={`/dashboard/${id}/projects`} className={({ isActive }) => isActive ? 'active' : ''}>
             Manage Projects
           </NavLink>
-          <NavLink to={`/dashboard/${id}/templates`} className={({ isActive }) => isActive ? 'active' : ''}>
-            Template Gallery
+
+          <div className="nav-section-header">Design</div>
+          <NavLink to={`/dashboard/${id}/builder`} className={({ isActive }) => isActive ? 'active' : ''}>
+            Page Builder <span className="beta-tag">New</span>
           </NavLink>
-          <NavLink to={`/dashboard/${id}/generator`} className={({ isActive }) => isActive ? 'active' : ''}>
-            Template Generator
+          <NavLink to={`/dashboard/${id}/components`} className={({ isActive }) => isActive ? 'active' : ''}>
+            Component Library
+          </NavLink>
+          <NavLink to={`/dashboard/${id}/templates`} className={({ isActive }) => isActive ? 'active' : ''}>
+            Theme Gallery
           </NavLink>
         </nav>
 

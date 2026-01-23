@@ -30,7 +30,7 @@ const ModernHome: React.FC<Props> = ({ data }) => {
 
       <section id="projects" className="modern-grid">
         {projects.map((project) => (
-          <Link to={`/project/${project.id}`} key={project.id} className="modern-card">
+          <Link to={`project/${project.id}`} key={project.id} className="modern-card">
             <img src={project.thumbnail} alt={project.title} className="modern-card-img" />
             <h3>{project.title}</h3>
             <p>{project.category} — {project.timeline}</p>
