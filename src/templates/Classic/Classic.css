@@ -11,9 +11,13 @@
     color: var(--text-color);
     line-height: 1.6;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh; /* Ensure background covers full height */
 }
 
+/* Replicating the aggressive reset from original style.css */
 .classic-template * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
